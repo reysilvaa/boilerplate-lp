@@ -10,19 +10,14 @@ use App\Http\Controllers\PaymentCallbackController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    $mode = (string) config('analytics.mode');
-    $number = preg_replace('/\D+/', '', (string) config('analytics.whatsapp_number'));
-    $whatsappUrl = $number ? 'https://wa.me/'.$number.'?text='.urlencode((string) config('analytics.whatsapp_default_message')) : '#pricing';
-
-    return Inertia::render("demo/{$mode}", [
-        'whatsappUrl' => $whatsappUrl,
-        'externalCheckoutUrl' => config('analytics.external_checkout_url'),
-        'paymentMode' => config('analytics.payment_mode'),
-        'productName' => config('analytics.product_name'),
-        'productPrice' => config('analytics.product_price'),
+$renderHome = function () {
+    return Inertia::render('cycle10/LandingPage', [
+        'name' => 'Kelas TOEFL Skor 500+ untuk Submission Beasiswa dan Kerja',
     ]);
-})->name('home');
+};
+
+Route::get('/', $renderHome)->name('home');
+Route::get('/c10-lp', $renderHome)->name('c10-lp');
 
 Route::middleware('throttle:120,1')->group(function () {
     Route::post('/analytics/track', [AnalyticsController::class, 'track'])->name('analytics.track');

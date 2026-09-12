@@ -29,3 +29,7 @@ yarn-error.log
 /.zed
 new/
 admin.md
+AGENTS.md
+boost.json
+.agents/
+opencode.json

@@ -1,3 +1,4 @@
+import '@inertiajs/core';
 import type { EventType } from '@/analytics/event-types';
 import type { TrackingProps } from '@/types/analytics';
 import type { Auth } from '@/types/auth';
