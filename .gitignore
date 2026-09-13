@@ -1,7 +1,6 @@
 /.phpunit.cache
 /bootstrap/ssr
 /node_modules
-/public/build
 /public/fonts-manifest.dev.json
 /public/hot
 /public/storage
@@ -33,3 +32,4 @@ AGENTS.md
 boost.json
 .agents/
 opencode.json
+.env.prod
