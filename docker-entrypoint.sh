@@ -11,6 +11,6 @@ php artisan route:clear || true
 php artisan view:clear || true
 
 php artisan migrate --force || true
-php artisan pbm:create-admin --name=Admin --email=admin@gmail.com --password=password123 || true
+php artisan tinker --execute='\App\Models\User::updateOrCreate(["email" => "admin@gmail.com"], ["name" => "Admin", "password" => \Illuminate\Support\Facades\Hash::make("password123"), "role" => "admin"]);' || true
 
 exec php artisan serve --host=0.0.0.0 --port="${PORT:-8080}"
