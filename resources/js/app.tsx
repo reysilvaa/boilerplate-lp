@@ -1,11 +1,9 @@
 import { createInertiaApp } from '@inertiajs/react';
-import { lazy, Suspense } from 'react';
 import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { initializeTheme } from '@/hooks/use-appearance';
+import AuthLayout from '@/layouts/auth-layout';
 import TrackingLayout from '@/layouts/tracking-layout';
-
-const AuthLayout = lazy(() => import('@/layouts/auth-layout'));
 
 const appName = import.meta.env.VITE_APP_NAME || 'PBM Landing Page';
 
@@ -23,8 +21,7 @@ createInertiaApp({
     withApp(app) {
         return (
             <TooltipProvider delayDuration={0}>
-                {/* Suspense is required when using lazy() layout imports */}
-                <Suspense fallback={null}>{app}</Suspense>
+                {app}
                 <Toaster />
             </TooltipProvider>
         );

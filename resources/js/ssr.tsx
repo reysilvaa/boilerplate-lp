@@ -8,13 +8,13 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import AuthLayout from '@/layouts/auth-layout';
 import TrackingLayout from '@/layouts/tracking-layout';
 
-const appName = import.meta.env.VITE_APP_NAME || 'PBM Agency';
+const appName = import.meta.env.VITE_APP_NAME || 'PBM Landing Page';
 
 createServer((page) =>
     createInertiaApp({
         page,
         render: ReactDOMServer.renderToString,
-        title: (title) => (title ? `${title} - ${appName}` : appName),
+        title: (title) => (title ? `${title}` : appName),
         resolve: (name) =>
             resolvePageComponent(
                 `./pages/${name}.tsx`,

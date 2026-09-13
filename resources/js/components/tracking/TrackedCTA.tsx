@@ -14,24 +14,26 @@ type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'> & {
     onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 };
 
-export const TrackedCTA = forwardRef<HTMLAnchorElement, Props>(function TrackedCTA(
-    { zone, action, label, children, onClick, ...props },
-    ref,
-) {
-    const tracking = usePage().props.tracking as TrackingProps;
+export const TrackedCTA = forwardRef<HTMLAnchorElement, Props>(
+    function TrackedCTA(
+        { zone, action, label, children, onClick, ...props },
+        ref,
+    ) {
+        const tracking = usePage().props.tracking as TrackingProps;
 
-    const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-        if (tracking?.enabled) {
-            const eventType = resolveCtaEvent(tracking.mode, action);
-            void track(eventType, { zone, action, cta_label: label });
-        }
+        const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+            if (tracking?.enabled) {
+                const eventType = resolveCtaEvent(tracking.mode, action);
+                void track(eventType, { zone, action, cta_label: label });
+            }
 
-        onClick?.(event);
-    };
+            onClick?.(event);
+        };
 
-    return (
-        <a {...props} ref={ref} onClick={handleClick}>
-            {children}
-        </a>
-    );
-});
+        return (
+            <a {...props} ref={ref} onClick={handleClick}>
+                {children}
+            </a>
+        );
+    },
+);
