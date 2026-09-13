@@ -12,7 +12,7 @@ use Inertia\Inertia;
 
 $renderHome = function () {
     return Inertia::render('cycle10/LandingPage', [
-        'name' => 'Kelas TOEFL Skor 500+ untuk Submission Beasiswa dan Kerja',
+        'name' => 'Raih TOEFL 500+ Cukup 15 Hari. (LMS Tutor AI)',
     ]);
 };
 
@@ -29,7 +29,7 @@ if (config('analytics.mode') === 'form') {
     Route::post('/checkout', [CheckoutController::class, 'store'])->middleware('throttle:20,1')->name('checkout.store');
     Route::get('/payment/return', [CheckoutController::class, 'returnPage'])->name('payment.return');
     Route::post('/payment/callback', [PaymentCallbackController::class, 'handle'])->name('payment.callback');
-    $thankYouPath = '/'.ltrim((string) config('analytics.thank_you_path'), '/');
+    $thankYouPath = '/' . ltrim((string) config('analytics.thank_you_path'), '/');
     Route::inertia($thankYouPath, 'demo/thank-you')->name('thank-you');
 }
 

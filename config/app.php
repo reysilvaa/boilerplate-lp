@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Raih TOEFL 500+ Cukup 15 Hari. (LMS Tutor AI)'),
 
     /*
     |--------------------------------------------------------------------------

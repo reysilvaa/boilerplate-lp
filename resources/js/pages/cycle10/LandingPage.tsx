@@ -390,7 +390,7 @@ nextReview();
 
   return (
     <>
-      <Head title="Kelas TOEFL Skor 500+ untuk Submission Beasiswa dan Kerja" />
+      <Head title="Raih TOEFL 500+ Cukup 15 Hari. (LMS Tutor AI)" />
       <style>{KEYFRAMES}</style>
       
       
