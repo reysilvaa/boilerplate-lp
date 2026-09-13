@@ -7,7 +7,7 @@ config = php_config(
     php_framework = "laravel",
     composer_enable = True,
     composer_build_script = None,
-    php_version = "8.4.23",
+    php_version = "8.3.21",
     phpix = False,
     php_public_dir = "public",
 )
