@@ -14,12 +14,4 @@ config = php_config(
 
 build = php_build(config)
 
-php_serve(
-    config,
-    build,
-    name = "boilerplate-lp",
-    commands = {
-        "start": "php -S 0.0.0.0:8080 -t public",
-        "after_deploy": "php artisan migrate --force",
-    },
-)
+php_serve(config, build, name = "boilerplate-lp")
